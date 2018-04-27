@@ -1,0 +1,45 @@
+<div class="section section-dark-gray">
+
+    <div class="container">
+
+    <div class="row">
+      <div class="col-md-12">
+      <h2 class="text-center">DINNER FINDER</h2>
+        <br>
+          <p class="text-center">Brug vores søgemaskine til at finde restauranter nær dig</p>
+        <br>
+        <br>
+
+        <div class="nav-tabs-navigation">
+          <div class="nav-tabs-wrapper">
+            <ngb-tabset [justify]="'center'">
+              <ngb-tab>
+                  <ng-template ngbTabTitle>
+                      <a class="btn btn-link">1. HVOR?</a>
+                  </ng-template>
+                <ng-template ngbTabContent>
+                  <app-where></app-where>
+                </ng-template>
+              </ngb-tab>
+
+              <ngb-tab title="2. HVAD">
+                <ng-template ngbTabContent>
+                  <app-what></app-what>
+                </ng-template>
+              </ngb-tab>
+
+              <ngb-tab title="3. BUDGET">
+                <ng-template ngbTabContent>
+                  <app-budget></app-budget>
+                </ng-template>
+              </ngb-tab>
+            </ngb-tabset>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

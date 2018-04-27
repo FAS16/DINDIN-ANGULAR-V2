@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-12">
+    <br>
+    <h5>Vælg køkken</h5>
+      <br>
+      <ul class="list-inline ">
+          <li
+              *ngFor="let cuisine of cuisines; let i = index"
+              class="list-inline-item p-1"
+              (click)="onCuisineSelected(clickableButton.innerText)">
+              <button #clickableButton
+                      [ngClass] = "{justselected: isSelected(cuisine)}"
+                      class="btn btn-lg"
+                      type="button">{{cuisines[i]}}
+              </button>
+          </li>
+      </ul>
+  </div>
+</div>
+
+<div class="row mx-auto mt-lg-5" >
+    <div class="col-md-12">
+    <button class="btn btn-info btn-lg btn-just-icon mr-5" type="button"><i class="nc-icon nc-minimal-left"></i></button>
+    <button class="btn btn-info btn-lg btn-just-icon ml-5" type="button"><i class="nc-icon nc-minimal-right"></i></button>
+    </div>
+</div>
+
