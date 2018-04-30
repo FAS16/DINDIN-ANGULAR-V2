@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
-import {LoginComponent} from './login/login.component';
+import {LoginComponent} from './auth/login/login.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home/home.component';
@@ -19,6 +19,12 @@ import { RestaurantItemComponent } from './restaurant/restaurant-list/restaurant
 import {HeaderComponent} from './shared/header/header.component';
 import {FooterComponent} from './shared/footer/footer.component';
 import {PageHeaderComponent} from './home/page-header/page-header.component';
+import { ClickedDirective } from './shared/directives/clicked.directive';
+import {HttpClientModule} from '@angular/common/http';
+import {AuthService} from './auth/auth.service';
+import {UserService} from './user/user.service';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -36,7 +42,10 @@ import {PageHeaderComponent} from './home/page-header/page-header.component';
       UserComponent,
       HomeComponent,
       RestaurantListComponent,
-      RestaurantItemComponent
+      RestaurantItemComponent,
+      ClickedDirective,
+      AboutusComponent,
+      ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -44,8 +53,9 @@ import {PageHeaderComponent} from './home/page-header/page-header.component';
     FormsModule,
     RouterModule,
     AppRoutingModule,
+      HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

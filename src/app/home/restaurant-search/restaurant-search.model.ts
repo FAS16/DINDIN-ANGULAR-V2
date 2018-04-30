@@ -1,21 +1,21 @@
 export class RestaurantSearch {
 
-    constructor(private _area: string, private _cuisine: string[], private _budget: string){
+    constructor(private _zipcode: number, private _cuisines: string[], private _budget: string){
     }
 
-    get area(): string {
-        return this._area;
+    get area(): number {
+        return this._zipcode;
     }
 
-    set area(value: string) {
-        this._area = value;
+    set area(value: number) {
+        this._zipcode = value;
     }
-    get cuisine(): string[] {
-        return this._cuisine;
+    get cuisines(): string[] {
+        return this._cuisines;
     }
 
-    set cuisine(value: string[]) {
-        this._cuisine = value;
+    set cuisines(value: string[]) {
+        this._cuisines = value;
     }
 
     get budget(): string {
