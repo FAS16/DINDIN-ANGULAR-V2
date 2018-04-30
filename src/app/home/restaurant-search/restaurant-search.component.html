@@ -4,7 +4,7 @@
 
     <div class="row">
       <div class="col-md-12">
-      <h2 class="text-center">DINNER FINDER</h2>
+      <h2 class="text-center ml-4">DINNER FINDER</h2>
         <br>
           <p class="text-center">Brug vores søgemaskine til at finde restauranter nær dig</p>
         <br>
@@ -15,31 +15,93 @@
             <ngb-tabset [justify]="'center'">
               <ngb-tab>
                   <ng-template ngbTabTitle>
-                      <a class="btn btn-link">1. HVOR?</a>
+                      <h6 style="cursor: pointer; color: white">1. HVOR</h6>
                   </ng-template>
                 <ng-template ngbTabContent>
                   <app-where></app-where>
                 </ng-template>
               </ngb-tab>
 
-              <ngb-tab title="2. HVAD">
-                <ng-template ngbTabContent>
-                  <app-what></app-what>
-                </ng-template>
-              </ngb-tab>
+                <ngb-tab>
+                    <ng-template ngbTabTitle>
+                        <h6 style="cursor: pointer; color: white">2. HVAD</h6>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                        <app-what></app-what>
+                    </ng-template>
+                </ngb-tab>
 
-              <ngb-tab title="3. BUDGET">
-                <ng-template ngbTabContent>
-                  <app-budget></app-budget>
-                </ng-template>
-              </ngb-tab>
+                <ngb-tab>
+                    <ng-template ngbTabTitle>
+                        <h6 style="cursor: pointer; color: white">3. BUDGET</h6>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                        <app-budget></app-budget>
+                    </ng-template>
+                </ngb-tab>
             </ngb-tabset>
           </div>
         </div>
       </div>
     </div>
-  </div>
+    </div>
 </div>
+
+        <div class="section section-darcula">
+        <div class="container">
+        <div class="row mb-4" >
+            <div class="col-md-12">
+                <div class="mx-auto">
+                <h3 class="text-center ml-4">DINE VALG</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="row text-center mt-3">
+            <div class="col-md-4">
+                <div class="ml-4 float-right custom-width">
+                <h6 >Område</h6>
+                <ul class="list-unstyled">
+                    <li><h3> <span *ngIf="restaurantSearch.area > 0"
+                                   class="badge badge-new">{{restaurantSearch.area}}
+                            </span></h3></li>
+                </ul>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="ml-4">
+                <h6 >Køkken</h6>
+                <ul class="list-unstyled">
+
+                    <li *ngFor="let cuisine of restaurantSearch.cuisines; let i = index">
+                        <h3> <span class="badge badge-new">{{cuisine}}</span></h3>
+                    </li>
+
+                </ul>
+            </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="ml-4 float-left custom-width">
+                <h6>Prisklasse</h6>
+                <ul class="list-unstyled">
+                    <li><h3> <span class="badge badge-new">{{restaurantSearch.budget}}</span></h3></li>
+                </ul>
+            </div></div>
+        </div>
+            <div class="row ml-2 mt-5">
+                <button type="button" class="btn btn-success btn-lg btn-round mr-auto ml-auto mt-6">SØG</button>
+            </div>
+
+        </div>
+
+
+
+        </div>
+
+
 
 
 

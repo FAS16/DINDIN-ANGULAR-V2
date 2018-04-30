@@ -4,21 +4,38 @@
     <br>
     <h5>Vælg dit budget</h5>
     <br>
-
       <ul class="list-inline ">
           <li class="list-inline-item">
-              <button class="btn dollar-color-light btn-xxl btn-just-icon" type="button" placement="left" ngbTooltip="20-100kr">
+              <button
+                      [ngClass] = "{justselected: selectedBudget === LOW}"
+                      (click)="onLowBudgetSelected()"
+                      class="btn dollar-color-light btn-xxl
+                      btn-just-icon"
+                      type="button"
+                      placement="left"
+                      ngbTooltip="20-100kr">
+                  <img src="assets/icons/dollar-symbol.svg" style="height: 20px" >
+              </button>
+
+          </li >
+          <li class="list-inline-item">
+              <button [ngClass] = "{justselected: selectedBudget === MEDIUM}"
+                      (click)="onMediumBudgetSelected()"
+                      class="btn dollar-color-normal btn-xxl btn-just-icon"
+                      type="button"
+                      placement="bottom"
+                      ngbTooltip="100-500kr">
+                  <img src="assets/icons/dollar-symbol.svg" style="height: 20px" >
                   <img src="assets/icons/dollar-symbol.svg" style="height: 20px" >
               </button>
           </li >
           <li class="list-inline-item">
-              <button class="btn dollar-color-normal btn-xxl btn-just-icon" type="button" placement="bottom" ngbTooltip="100-500kr">
-                  <img src="assets/icons/dollar-symbol.svg" style="height: 20px" >
-                  <img src="assets/icons/dollar-symbol.svg" style="height: 20px" >
-              </button>
-          </li >
-          <li class="list-inline-item">
-              <button class="btn dollar-color-dark btn-xxl btn-just-icon" type="button" placement="right" ngbTooltip="500kr+">
+              <button [ngClass] = "{justselected: selectedBudget === HIGH}"
+                      (click)="onHighBudgetSelected()"
+                      class="btn dollar-color-dark btn-xxl btn-just-icon"
+                      type="button"
+                      placement="right"
+                      ngbTooltip="500kr+">
                   <img src="assets/icons/dollar-symbol.svg" style="height: 20px" >
                   <img src="assets/icons/dollar-symbol.svg" style="height: 20px" >
                   <img src="assets/icons/dollar-symbol.svg" style="height: 20px" >
