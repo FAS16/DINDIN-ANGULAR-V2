@@ -28,6 +28,7 @@ import { ContactComponent } from './contact/contact.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { UserDescriptionComponent } from './user/user-profile/user-description/user-description.component';
 import { LikedRestaurantsComponent } from './user/user-profile/liked-restaurants/liked-restaurants.component';
+import {AngularFontAwesomeModule} from 'angular-font-awesome';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { LikedRestaurantsComponent } from './user/user-profile/liked-restaurants
     FormsModule,
     RouterModule,
     AppRoutingModule,
-      HttpClientModule
+      HttpClientModule,
+      AngularFontAwesomeModule
   ],
   providers: [AuthService, UserService],
   bootstrap: [AppComponent]

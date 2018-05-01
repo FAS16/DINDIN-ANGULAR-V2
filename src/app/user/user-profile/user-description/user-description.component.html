@@ -1,9 +1,10 @@
 
 <h3 class="ml-3 mb-3 mt-5">BRUGEROPLYSNINGER </h3>
+<hr style="width: 97%">
 <div class="container">
   <table class="table">
     <thead>
-    <tr>
+    <tr class="bg-info">
       <th>Brugernavn</th>
       <th>Fornavn</th>
       <th>Efternavn</th>
@@ -11,11 +12,11 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>John</td>
-      <td>Doe</td>
-      <td>john@example.com</td>
-      <td>john@example.com</td>
+    <tr class="bg-white text-dark">
+      <td>{{user.username}}</td>
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.created.replace('04:31:28 CEST ','')}}</td>
     </tr>
     </tbody>
   </table>
