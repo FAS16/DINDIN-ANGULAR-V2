@@ -25,6 +25,9 @@ import {AuthService} from './auth/auth.service';
 import {UserService} from './user/user.service';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactComponent } from './contact/contact.component';
+import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import { UserDescriptionComponent } from './user/user-profile/user-description/user-description.component';
+import { LikedRestaurantsComponent } from './user/user-profile/liked-restaurants/liked-restaurants.component';
 
 
 @NgModule({
@@ -45,7 +48,10 @@ import { ContactComponent } from './contact/contact.component';
       RestaurantItemComponent,
       ClickedDirective,
       AboutusComponent,
-      ContactComponent
+      ContactComponent,
+      UserProfileComponent,
+      UserDescriptionComponent,
+      LikedRestaurantsComponent
   ],
   imports: [
     BrowserModule,

@@ -32,8 +32,8 @@
           <div ngbDropdown class="d-inline-block dropdown">
             <a class="text-white btn btn-info" id="dropdown" ngbDropdownToggle>Profil</a>
             <div ngbDropdownMenu aria-labelledby="dropdown" class="dropdown-info">
-              <a class="dropdown-header">Hej Bruger - Erstat med navn</a>
-              <a class="dropdown-item">Min profil</a>
+              <a class="dropdown-header">Hej {{user.firstName}}!</a>
+              <a class="dropdown-item" routerLink="/profile">Min profil</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item">Indstillinger</a>
               <div class="dropdown-divider"></div>
