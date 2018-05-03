@@ -5,22 +5,31 @@
             <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
                 <div class="card bg-dark card-register">
                     <h3 class="text-center">Log ind</h3>
-
-                    <p *ngIf="signedIn">DU ER LOGGET IND!</p>
                     <form (ngSubmit)="onLogin(f)" #f="ngForm">
                         <div class="form-group">
                             <label for="username">Brugernavn</label>
-                            <input class="form-control" id="username" name="username" placeholder="username" ngModel
-                                   type="text">
+                            <input class="form-control"
+                                   id="username"
+                                   name="username"
+                                   placeholder="username"
+                                   ngModel
+                                   type="text" #uname required [pattern]="'^[s]{1}[0-9]{6}$'">
+                            <span *ngIf="!uname.valid && uname.touched" class="text-danger">
+                                Ugyldigt brugernavn (studienummer)
+                            </span>
 
                             <label for="password">Adgangskode</label>
-                            <input class="form-control" id="password" name="password" placeholder="password" ngModel
-                                   type="password">
-                            <button class="btn btn-success btn-block btn-round" type="submit">Log ind</button>
+                            <input class="form-control"
+                                   id="password" name="password"
+                                   placeholder="password"
+                                   ngModel
+                                   type="password"
+                                   required>
+                            <button class="btn btn-success btn-block btn-round"
+                                    type="submit" [disabled]="!f.valid">Log ind
+                            </button>
                         </div>
                     </form>
-
-
                     <div class="forgot">
                         <a class="btn btn-link btn-neutral" href="#">Glemt adgangskode?</a>
                     </div>

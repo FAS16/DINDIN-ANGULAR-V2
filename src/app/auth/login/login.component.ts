@@ -12,19 +12,19 @@ import {Subscription} from 'rxjs/Subscription';
 export class LoginComponent implements OnInit, OnDestroy {
   username: string;
   password: string;
-  signedIn: boolean;
   sub: Subscription;
+  authFailed = false;
 
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-      this.sub = this.authService.authenticated
-          .subscribe(
-              (authenticated: boolean) => {
-                  this.signedIn = authenticated;
-                  console.log('Recieved data [boolean] from subscription in LoginComponent: ' + this.signedIn)
-              }
-          );
+          this.sub = this.authService.authenticated
+              .subscribe(
+                  (authenticated: boolean) => {
+                      this.authFailed = authenticated;
+                      console.log('Recieved data [boolean] from subscription in LoginComponent: ' + this.authFailed)
+                  }
+              );
   }
     ngOnDestroy() {
         this.sub.unsubscribe();
@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.username = form.value.username;
     this.password = form.value.password;
     this.authService.signInUser(this.username, this.password);
-    // console.log('signedIn: ' + this.signedIn);
 
   }
 }

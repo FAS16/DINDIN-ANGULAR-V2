@@ -29,6 +29,8 @@ import { UserProfileComponent } from './user/user-profile/user-profile.component
 import { UserDescriptionComponent } from './user/user-profile/user-description/user-description.component';
 import { LikedRestaurantsComponent } from './user/user-profile/liked-restaurants/liked-restaurants.component';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
+import {BackendService} from './shared/backend/backend.service';
+import {RestaurantService} from './restaurant/restaurant.service';
 
 
 @NgModule({
@@ -63,7 +65,7 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
       HttpClientModule,
       AngularFontAwesomeModule
   ],
-  providers: [AuthService, UserService],
+  providers: [AuthService, UserService, BackendService, RestaurantService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

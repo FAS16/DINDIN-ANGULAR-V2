@@ -1,10 +1,13 @@
 import {Restaurant} from './restaurant.model';
+import {Subject} from 'rxjs/Subject';
+import {Subscription} from 'rxjs/Subscription';
+import {RestaurantSearch} from '../home/restaurant-search/restaurant-search.model';
 
 export class RestaurantService {
     private _restaurants: Restaurant[] = [
-        new Restaurant( 1, 'Amager kebab', 2300, 'Amagerbrogade 24', 'LOW', 'Tyrkisk', null),
-        new Restaurant(2, 'Sushi Mania', 2770, 'Kastrupvej 24', 'MEDIUM', 'Kinesisk', null),
-        new Restaurant(3, 'Silas Kebab', 2300, 'Tingvej 2', 'LOW', 'Tyrkisk', null)
+        new Restaurant( 1, 'Amager kebab', 2300, 'Amagerbrogade 24', 'LOW', 'Tyrkisk', null, 0, '', ''),
+        new Restaurant(2, 'Sushi Mania', 2770, 'Kastrupvej 24', 'MEDIUM', 'Kinesisk', null,  0, '', ''),
+        new Restaurant(3, 'Silas Kebab', 2300, 'Tingvej 2', 'LOW', 'Tyrkisk', null, 0, '', '')
     ];
     private _cuisines: string[] = [];
 
@@ -21,5 +24,10 @@ export class RestaurantService {
 
     get restaurants(): Restaurant[] {
         return this._restaurants.slice(); // Slice - så der gives en kopi, og man ikke ændrer i listen i denne service
+
+    }
+
+    setRestaurants(restaurants: Restaurant[]) {
+        this._restaurants = restaurants;
     }
 }

@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LikedRestaurantsComponent implements OnInit {
 
+  toggled = false;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onToggle() {
+    this.toggled = !this.toggled;
   }
 
 }

@@ -1,8 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {RestaurantService} from '../../restaurant/restaurant.service';
 import {RestaurantSearch} from './restaurant-search.model';
 import {RestaurantSearchService} from './restaurant-search.service';
 import {Subscription} from 'rxjs/Subscription';
+import {BackendService} from '../../shared/backend/backend.service';
+import {RestaurantService} from '../../restaurant/restaurant.service';
 
 @Component({
   selector: 'app-restaurant-search',
@@ -14,7 +15,9 @@ export class RestaurantSearchComponent implements OnInit, OnDestroy {
     restaurantSearch: RestaurantSearch = new RestaurantSearch(0, null, '');
     sub: Subscription;
 
-  constructor(private restaurantSearchService: RestaurantSearchService) { }
+  constructor(private restaurantSearchService: RestaurantSearchService,
+              private backendService: BackendService,
+              private restaurantService: RestaurantService) { }
 
   ngOnInit() {
       console.log('ngOnInit invoked in RestaurantSearchComponent')
