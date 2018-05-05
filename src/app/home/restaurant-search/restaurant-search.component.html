@@ -62,8 +62,8 @@
                 <div class="ml-4 float-right custom-width">
                 <h6 >Område</h6>
                 <ul class="list-unstyled">
-                    <li><h3> <span *ngIf="restaurantSearch.area > 0"
-                                   class="badge badge-new">{{restaurantSearch.area}}
+                    <li><h3> <span *ngIf="restaurantSearch.zipcode > 0"
+                                   class="badge badge-new">{{restaurantSearch.zipcode}}
                             </span></h3></li>
 
                 </ul>
@@ -93,7 +93,11 @@
             </div></div>
         </div>
             <div class="row ml-2 mt-5">
-                <button type="button" class="btn btn-success btn-lg btn-round mr-auto ml-auto mt-6">SØG</button>
+                <button (click)="onSearch()"
+                        type="button"
+                        class="btn btn-success
+                        btn-lg btn-round mr-auto
+                        ml-auto mt-6">SØG</button>
             </div>
 
         </div>

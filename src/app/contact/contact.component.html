@@ -1,3 +1,101 @@
-<p>
-  contact works!
-</p>
+<!--Tekst-->
+<div class="tekst-container" id="blikfang">
+  <h1>Kontakt os endelig hvis du har spørgsmål</h1>
+  <h2>Vi sidder klar ved telefonerne 24/7</h2>
+</div>
+<!--/Tekst-->
+
+<div class="container" id="send_mail">
+  <div class="row">
+    <div class="col-md-12">
+
+      <!--Kort #todo implementer kort-->
+      <div class="container maps-container" id="gmap">
+        <!--https://blog.cloudboost.io/integrating-google-maps-in-angular-5-ca5f68009f29-->
+      </div>
+      <!--/Kort-->
+
+      <!--Kontakt-->
+      <div class="row">
+
+        <!--Kontakt info-->
+        <div class="col-md-4">
+          <h3>Kontaktoplysninger:</h3>
+          <br>
+          <ul>
+            <li><h4>Adresse</h4></li>
+            <li>Anker Engelundsvej 1</li>
+            <li>2800 Kgs. Lyngby</li>
+          </ul>
+
+          <ul>
+            <li><h4>Telefon</h4></li>
+            <li>2114 7659</li>
+            <li>Telefonerne er åbne fra 8 til 17 alle hverdage</li>
+          </ul>
+
+          <ul>
+            <li><h4>Mail</h4></li>
+            <li>Info@dindin.dk</li>
+          </ul>
+
+          <ul>
+            <li><h4>Åbningstider</h4></li>
+            <li>Webside er åben 24/7.</li>
+            <li>Enkelte restauranter har egne åbningstider</li>
+          </ul>
+        </div>
+        <!--/Kontakt info-->
+
+        <!--Mail CTA-->
+        <br>
+        <div class="col-md-8">
+          <div>
+            <h2 style="text-align: center">Ingen grund til at være genert</h2>
+            <h5 style="text-align: center">Har du spørgsmål eller vil du bare i gang? Udfyld dine oplysninger her, så kontakter vi dig!</h5>
+          </div>
+
+          <div>
+            <form action="/action_page.php">
+              <br>
+
+              <div class="row">
+                <!--Navn-->
+                <div class="col-md-6">
+                  <label for="fname">Navn</label>
+                  <input type="text" id="fname" name="firstname" placeholder="Dit navn..">
+                </div>
+                <!--/Navn-->
+
+                <!--Mail-->
+                <div class="col-md-6">
+                  <label for="mail">Mail</label>
+                  <input type="text" id="mail" name="mail" placeholder="Din mailadresse..">
+                </div>
+                <!--/Mail-->
+
+                <!--Besked-->
+                <div class="col-md-12 besked">
+                  <label for="mail">Besked</label>
+                  <input type="text" id="besked" name="mail" placeholder="Eventuel besked..">
+                </div>
+                <!--/Besked-->
+
+                <!--Submit-->
+                <div class="submit">
+                  <input type="submit" value="Indsend">
+                </div>
+                <!--/Submit-->
+              </div>
+            </form>
+          </div>
+
+        </div>
+        <!--/Mail CTA-->
+
+      </div>
+      <!--/Kontakt-->
+
+    </div>
+  </div>
+</div>

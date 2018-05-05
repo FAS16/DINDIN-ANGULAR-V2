@@ -4,13 +4,14 @@ import {UserService} from '../../user/user.service';
 import {RestaurantService} from '../../restaurant/restaurant.service';
 import {Restaurant} from '../../restaurant/restaurant.model';
 import 'rxjs/Rx';
+import {RestaurantSearchService} from '../../home/restaurant-search/restaurant-search.service';
 
 @Injectable()
 export class BackendService {
-
     constructor(private httpClient: HttpClient,
                 private userService: UserService,
-                private restaurantService: RestaurantService) {
+                private restaurantService: RestaurantService,
+                private restaurantSearchService: RestaurantSearchService) {
     }
 
     getAllRestaurants() {
@@ -20,7 +21,7 @@ export class BackendService {
         })
             .map(
                 (restaurants) => {
-                    console.log(restaurants);
+                    console.log('MAP: ' + restaurants);
                     for (const restaurant of restaurants) {
                         if (!restaurant['likers']) {
                             restaurants['likers'] = [];
@@ -31,10 +32,34 @@ export class BackendService {
             )
             .subscribe(
                 (restaurants: Restaurant[]) => {
-                    console.log('new restaurants' + restaurants.toString());
                     this.restaurantService.setRestaurants(restaurants);
                 }
             );
+    }
+    getRestaurantsBySearch(URI: string) {
+        this.httpClient.get<Restaurant[]>(URI, {
+            observe: 'body',
+            responseType: 'json'
+        })
+            .map(
+                (restaurants) => {
+                    console.log('MAP: ' + restaurants);
+                    for (const restaurant of restaurants) {
+                        if (!restaurant['likers']) {
+                            restaurants['likers'] = [];
+                        }
+                    }
+                    return restaurants;
+                }
+            )
+            .subscribe(
+                (restaurants: Restaurant[]) => {
+                    this.restaurantSearchService.setResults(restaurants);
+                    console.log(restaurants[0].name);
+                }
+            );
+    }
+    likeRestaurant() {
     }
 
 

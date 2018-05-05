@@ -9,7 +9,6 @@ import {Restaurant} from '../../../restaurant/restaurant.model';
     selector: 'app-what',
     templateUrl: './what.component.html',
     styleUrls: ['./what.component.scss'],
-    providers: [RestaurantService, RestaurantSearchService, BackendService]
 })
 export class WhatComponent implements OnInit {
     cuisines: string[] = [];
@@ -23,19 +22,17 @@ export class WhatComponent implements OnInit {
 
     ngOnInit() {
         console.log('ngOnInit invoked in WhatComponent');
-        this.cuisines = this.restaurantService.cuisines;
-        console.log('FAHAD SER HER' + this.cuisines);
 
+        this.sub = this.restaurantService.restaurantsChanged
+            .subscribe(
+                (restaurants: Restaurant[]) => {
+                    this.restaurants = restaurants;
+                    console.log('Recived data from subscription in WhatComponent: ' + restaurants + this.restaurants)
+                }
+            )
+        this.restaurants = this.restaurantService.getRestaurants();
         this.selectedCuisines = this.restaurantSearchService.search.cuisines.slice();
-
-
-        // this.restaurantService.restaurantsChanged
-        //     .subscribe(
-        //         (restaurants: Restaurant[]) => {
-        //             this.restaurants = restaurants;
-        //             this.initCuisines();
-        //         }
-        //     )
+        this.initCuisines();
     }
 
     initCuisines() {

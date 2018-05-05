@@ -13,7 +13,7 @@ export class WhereComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.selectedZipcode = this.restaurantSearchService.search.area;
+        this.selectedZipcode = this.restaurantSearchService.search.zipcode;
     }
 
     onSubmit(form: NgForm) {

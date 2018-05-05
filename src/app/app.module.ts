@@ -17,20 +17,22 @@ import {BudgetComponent} from './home/restaurant-search/budget/budget.component'
 import { RestaurantListComponent } from './restaurant/restaurant-list/restaurant-list.component';
 import { RestaurantItemComponent } from './restaurant/restaurant-list/restaurant-item/restaurant-item.component';
 import {HeaderComponent} from './shared/header/header.component';
-import {FooterComponent} from './shared/footer/footer.component';
 import {PageHeaderComponent} from './home/page-header/page-header.component';
 import { ClickedDirective } from './shared/directives/clicked.directive';
 import {HttpClientModule} from '@angular/common/http';
 import {AuthService} from './auth/auth.service';
 import {UserService} from './user/user.service';
-import { AboutusComponent } from './aboutus/aboutus.component';
-import { ContactComponent } from './contact/contact.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { UserDescriptionComponent } from './user/user-profile/user-description/user-description.component';
 import { LikedRestaurantsComponent } from './user/user-profile/liked-restaurants/liked-restaurants.component';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {BackendService} from './shared/backend/backend.service';
 import {RestaurantService} from './restaurant/restaurant.service';
+import {RestaurantSearchService} from './home/restaurant-search/restaurant-search.service';
+import {ContactComponent} from './contact/contact.component';
+import {AboutusComponent} from './aboutus/aboutus.component';
+import {FooterComponent} from './shared/dindin-footer/dindin-footer.component';
+import {PersonerComponent} from './aboutus/personer/personer.component';
 
 
 @NgModule({
@@ -50,11 +52,13 @@ import {RestaurantService} from './restaurant/restaurant.service';
       RestaurantListComponent,
       RestaurantItemComponent,
       ClickedDirective,
-      AboutusComponent,
       ContactComponent,
       UserProfileComponent,
       UserDescriptionComponent,
-      LikedRestaurantsComponent
+      LikedRestaurantsComponent,
+      AboutusComponent,
+      FooterComponent,
+      PersonerComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +69,7 @@ import {RestaurantService} from './restaurant/restaurant.service';
       HttpClientModule,
       AngularFontAwesomeModule
   ],
-  providers: [AuthService, UserService, BackendService, RestaurantService],
+  providers: [AuthService, UserService, BackendService, RestaurantService, RestaurantSearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

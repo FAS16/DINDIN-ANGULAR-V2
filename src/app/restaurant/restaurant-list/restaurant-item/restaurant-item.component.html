@@ -1,3 +1,35 @@
-<p>
-  restaurant-item works!
-</p>
+ <div class="container">
+        <div class="card card-custom card-plain bg-white rounded">
+            <div class="card-body">
+                <div class="col-md-12">
+                    <div class="float-left">
+                        <h3 class="card-title"><b>{{restaurant.name}}</b></h3>
+                        <h5 class="card-subtitle">{{restaurant.cuisine}}</h5>
+                        <div class="ml-3 mt-1">
+                            <span class="font-weight-bold mr-1">Addresse:</span>
+                            <span>{{restaurant.address}}, {{restaurant.zipcode}}</span>
+                            <span class="ml-5 mr-1 font-weight-bold">Prisklasse:</span>
+                            <span>{{restaurant.budget}}</span>
+                            <br>
+                            <a href="#" class="card-link">Menukort</a>
+                            <a href="#" class="card-link">Se mere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md 12">
+                    <button class="btn btn-danger
+                                   btn-custom mt-5 btn-just-icon
+                                   float-right"
+                            (click)="onLike()"
+                            type="button"
+                            placement="right"
+                            ngbTooltip="Unlike">
+                        <i class="fa fa-heart"></i>
+                    </button>
+                    <img src="assets/img/logo-rest.png" style="height: 6%; width: 12%"
+                         class="mt-3 img-fluid img-thumbnail
+                         img-no-padding float-right mr-5">
+                </div>
+            </div>
+    </div>
+</div>

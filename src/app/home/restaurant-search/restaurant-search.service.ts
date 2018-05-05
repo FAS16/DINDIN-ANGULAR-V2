@@ -1,32 +1,34 @@
 import {RestaurantSearch} from './restaurant-search.model';
 import {Subject} from 'rxjs/Subject';
+import {Restaurant} from '../../restaurant/restaurant.model';
 
 export class RestaurantSearchService {
-    private _searchEdited = new Subject<RestaurantSearch>();
-    private _search: RestaurantSearch = new RestaurantSearch(0, [], '');
-    private _searches: RestaurantSearch[] = [];
-
-        get searches(): RestaurantSearch[] {
-        return this._searches.slice();
-    }
-    get search(): RestaurantSearch {
-        return this._search;
-    }
-
-    get searchEdited(): Subject<RestaurantSearch> {
-        return this._searchEdited;
+    public searchEdited = new Subject<RestaurantSearch>();
+    public resultsChanged = new Subject<Restaurant[]>();
+    public search: RestaurantSearch = new RestaurantSearch(0, [], '');
+    public searches: RestaurantSearch[] = [];
+    public results: Restaurant[] = [];
+    setResults(results: Restaurant[]) {
+        this.results = results;
+        this.resultsChanged.next(this.results.slice())
     }
     addZipcodeToSearch(zipcode: number) {
-        this._search.area = zipcode;
-        this._searchEdited.next(this._search);
-        console.log('Search area is: ' + this._search.area);
+        this.search.zipcode = zipcode;
+        this.searchEdited.next(this.search);
+        console.log('Search area is: ' + this.search.zipcode);
     }
     addCuisinesToSearch(cuisines: string[]) {
-        this._search.cuisines = cuisines;
-        this._searchEdited.next(this._search);
+        this.search.cuisines = cuisines;
+        this.searchEdited.next(this.search);
     }
     addBudgetToSearch(budget: string) {
-        this._search.budget = budget;
-        this._searchEdited.next(this._search);
+        this.search.budget = budget;
+        this.searchEdited.next(this.search);
+    }
+
+    resetSearch() {
+        this.search.zipcode = 0;
+        this.search.cuisines = [];
+        this.search.budget = '';
     }
 }

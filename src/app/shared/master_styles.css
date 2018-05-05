@@ -1,0 +1,30 @@
+
+h5 {
+
+}
+
+h4 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-top: 10px;
+    margin-bottom: 18px;
+    font-weight: bolder;
+    color: dodgerblue;
+}
+
+h3 {
+    color: #666666;
+    margin-bottom: 10px;
+}
+
+h1 {
+    margin-top: 50px;
+    font-size: 50px;
+}
+
+p {
+    text-align: left;
+}

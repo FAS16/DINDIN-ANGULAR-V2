@@ -1,3 +1,76 @@
-<p>
-  aboutus works!
-</p>
+<!--Top Billede-->
+<div class="top_imageview" id="top">
+    <div>
+        <h1>DinDin er fremtiden for nye madoplevelser</h1>
+    </div>
+</div>
+<!--/Top Billede-->
+
+<div class="omos-tekst">
+    <div class="container">
+        <div class="row omos-tekst">
+            <!--Spacer-->
+            <div class="col-md-1">
+                <br>
+            </div>
+            <!--/Spacer-->
+
+            <!--Venstre Tekst-->
+            <div class="col-md-5">
+                <h4>Det handler ikke om mad</h4>
+                <h2>Det handler om frihed</h2>
+                <p>Som ny startup i madbranchen er DinDin din vej til lækkert og frisk mad - leveret på tidspunkter
+                    der passer dig.
+                    Vores kærneværdier ligger i ikke blot at kunne finde mad at spise, men kunne finde noget der er
+                    <em>i orden</em></p>
+            </div>
+            <!--/Venstre Tekst-->
+
+            <!--Spacer-->
+            <div class="col-md-1">
+                <br>
+            </div>
+            <!--/Spacer-->
+
+            <!--Højre Tekst-->
+            <div class="col-md-5" style="text-align: center">
+                <h1>{{satisfied_customers}}</h1>
+                <p style="text-align: center" (click)="onClickCustomers()">Antal tilfredse kunder</p>
+            </div>
+            <!--/Højre teskt-->
+        </div>
+    </div>
+</div>
+
+<!--potrætter-->
+<div class="container omos">
+    <div class="row">
+        <div class="col-md-12">
+
+            <!--Vores hold tekst-->
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 style="text-align: center">Vores hold. Dine Specialiteter.</h1>
+                    <div class="divider-short"></div>
+                </div>
+            </div>
+            <!--/Vores hold tekst-->
+
+
+            <!--Medarbejdere-->
+            <div class="row">
+                <div class="col-md-12 medarbejdere">
+                    <app-personer></app-personer>
+                </div>
+            </div>
+            <!--/Medarbejdere-->
+
+            <!--spacer-->
+            <div class="spacer">
+            </div>
+            <!--/spacer-->
+
+        </div>
+    </div>
+</div>
+<!--potrætter-->

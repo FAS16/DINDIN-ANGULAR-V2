@@ -15,7 +15,6 @@ export class AuthService {
     private credentials: Credentials;
     private _authenticated = new Subject<boolean>();
     private user: User;
-    authFailed = false;
     // private newUser= new User(1, 'brugernavn', 'mail', 'fornavn', 'efternavn', [], 'skabt');
 
     constructor(private httpClient: HttpClient,
@@ -31,19 +30,13 @@ export class AuthService {
             observe: 'response'
         }). subscribe(
             (response: HttpResponse<any>) => {
-                const res = response;
-                console.log(res);
+                console.log(response);
                 if (response.status === 200) {
-                    this.authFailed = false;
-                    console.log(response)
-                    console.log(this.user);
                     this.user = response.body;
-                    console.log(this.user.firstName);
+                    console.log('User signed in: ' + this.user.username);
                     this.userService.initUser(this.user);
-                    console.log(this.userService.currentUser);
-                    console.log(this.userService.currentUser.email);
-
                     console.log('Authorized')
+                    // Retrieve token and store locally
                     this._token = response.headers.get('Authorization');
                     console.log('Retrieved token: ' + this._token);
                     if (this._token) {
@@ -55,10 +48,8 @@ export class AuthService {
                 }
             }, (error: HttpErrorResponse) => {
                 if (error.status === 401) {
-                    this.authFailed = true;
                     console.log('Unuthorized!')
                 } else {
-                    this.authFailed = true;
                     console.log('An error occured')
                 }
             });
