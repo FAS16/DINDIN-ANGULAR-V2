@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {RestaurantSearchService} from '../restaurant-search.service';
 import {NgForm} from '@angular/forms';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
     selector: 'app-where',
@@ -8,20 +9,31 @@ import {NgForm} from '@angular/forms';
     styleUrls: ['./where.component.scss']
 })
 export class WhereComponent implements OnInit {
-    selectedZipcode: number;
-    constructor(private restaurantSearchService: RestaurantSearchService) {
+    selectedZipcodes: number[];
+
+    constructor(private restaurantSearchService: RestaurantSearchService,
+                private toast: ToastrService ) {
     }
 
     ngOnInit() {
-        this.selectedZipcode = this.restaurantSearchService.search.zipcode;
+        this.selectedZipcodes = this.restaurantSearchService.search.zipcodes;
     }
 
     onSubmit(form: NgForm) {
         const value = form.value;
-        const zipcode = value.zipcode;
-        this.selectedZipcode = +zipcode;
-        this.restaurantSearchService.addZipcodeToSearch(this.selectedZipcode);
-        console.log('Selected zipcode is: ' + zipcode);
+        const zipcode = +value.zipcode;
+
+        const index: number = this.selectedZipcodes.indexOf(zipcode);
+
+        if (index === -1) {
+            this.selectedZipcodes.push(zipcode);
+            this.restaurantSearchService.addZipcodeToSearch(this.selectedZipcodes);
+            console.log('Selected zipcodes are: ' + this.selectedZipcodes.toString());
+            form.reset();
+        } else{
+            this.toast.warning('', 'Dette postnummer er allerede valgt');
+        }
+
     }
 
 }

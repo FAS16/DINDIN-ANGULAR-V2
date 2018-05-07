@@ -1,20 +1,22 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {RestaurantSearchService} from '../restaurant-search.service';
 import {BackendService} from '../../../shared/backend/backend.service';
 import {RestaurantService} from '../../../restaurant/restaurant.service';
 import {Subscription} from 'rxjs/Subscription';
 import {Restaurant} from '../../../restaurant/restaurant.model';
+import {RestaurantSearch} from '../restaurant-search.model';
 
 @Component({
     selector: 'app-what',
     templateUrl: './what.component.html',
     styleUrls: ['./what.component.scss'],
 })
-export class WhatComponent implements OnInit {
+export class WhatComponent implements OnInit, OnDestroy {
     cuisines: string[] = [];
     selectedCuisines: string[] = [];
     restaurants: Restaurant[];
-    private sub: Subscription;
+    private restaurantSub: Subscription;
+    private searchSub: Subscription;
 
     constructor(private restaurantService: RestaurantService,
                 private restaurantSearchService: RestaurantSearchService,
@@ -23,16 +25,27 @@ export class WhatComponent implements OnInit {
     ngOnInit() {
         console.log('ngOnInit invoked in WhatComponent');
 
-        this.sub = this.restaurantService.restaurantsChanged
+        this.restaurantSub = this.restaurantService.restaurantsChanged
             .subscribe(
                 (restaurants: Restaurant[]) => {
                     this.restaurants = restaurants;
                     console.log('Recived data from subscription in WhatComponent: ' + restaurants + this.restaurants)
                 }
             )
+        this.searchSub = this.restaurantSearchService.searchEdited
+            .subscribe(
+                (search: RestaurantSearch) => {
+                    this.selectedCuisines = search.cuisines;
+                }
+            )
         this.restaurants = this.restaurantService.getRestaurants();
         this.selectedCuisines = this.restaurantSearchService.search.cuisines.slice();
         this.initCuisines();
+    }
+
+    ngOnDestroy() {
+        this.restaurantSub.unsubscribe();
+        this.searchSub.unsubscribe();
     }
 
     initCuisines() {
@@ -58,7 +71,7 @@ export class WhatComponent implements OnInit {
 
     isSelected(cuisine: string): boolean {
         const index: number = this.selectedCuisines.indexOf(cuisine.toLowerCase());
-        if (index !== -1) { // Den var der
+        if (index !== -1) {
             return true;
         } else {
             return false;

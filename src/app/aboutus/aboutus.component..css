@@ -1,7 +1,7 @@
 
 .top_imageview {
     height: 420px;
-    background-image: url(../../assets/Billeder/blueberries.jpg);
+    background-image: url(../../assets/pics/blueberries.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     margin-top: -50px;
@@ -10,7 +10,6 @@
 .top_imageview h1 {
     padding-top: 150px;
     padding-bottom: 150px;
-    font-size: 70px;
     text-align: center;
     color: white;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;

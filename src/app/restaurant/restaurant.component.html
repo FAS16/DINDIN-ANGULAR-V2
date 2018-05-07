@@ -1,9 +1,14 @@
-<div class="section section-dark-gray">
+<div class="section section-dark-gray full-page">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h3 class="ml-3 margin-top">RESULTATER</h3>
+                <h3 class="ml-3 line-in margin-top">RESULTATER ({{numOfResults}})</h3>
+                <button routerLink="/home" class="btn btn-success btn-just-icon ml-3 mb-2"><i class="fa fa-repeat"></i></button>
                 <hr class="hr-custom">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
                 <app-restaurant-list></app-restaurant-list>
             </div>
         </div>

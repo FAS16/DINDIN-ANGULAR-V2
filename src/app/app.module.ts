@@ -24,15 +24,21 @@ import {AuthService} from './auth/auth.service';
 import {UserService} from './user/user.service';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { UserDescriptionComponent } from './user/user-profile/user-description/user-description.component';
-import { LikedRestaurantsComponent } from './user/user-profile/liked-restaurants/liked-restaurants.component';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {BackendService} from './shared/backend/backend.service';
 import {RestaurantService} from './restaurant/restaurant.service';
 import {RestaurantSearchService} from './home/restaurant-search/restaurant-search.service';
 import {ContactComponent} from './contact/contact.component';
 import {AboutusComponent} from './aboutus/aboutus.component';
-import {FooterComponent} from './shared/dindin-footer/dindin-footer.component';
+import {FooterComponent} from './shared/footer-new/footer.component';
 import {PersonerComponent} from './aboutus/personer/personer.component';
+import {LoadingComponent} from './restaurant/loading/loading.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastrModule} from 'ngx-toastr';
+import {CommonModule} from '@angular/common';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import {AuthGuardService} from './auth/auth-guard.service';
+
 
 
 @NgModule({
@@ -55,10 +61,11 @@ import {PersonerComponent} from './aboutus/personer/personer.component';
       ContactComponent,
       UserProfileComponent,
       UserDescriptionComponent,
-      LikedRestaurantsComponent,
       AboutusComponent,
       FooterComponent,
-      PersonerComponent
+      PersonerComponent,
+      LoadingComponent,
+      PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,10 +73,13 @@ import {PersonerComponent} from './aboutus/personer/personer.component';
     FormsModule,
     RouterModule,
     AppRoutingModule,
-      HttpClientModule,
-      AngularFontAwesomeModule
+    HttpClientModule,
+      CommonModule,
+    AngularFontAwesomeModule,
+      BrowserAnimationsModule,
+      ToastrModule.forRoot()
   ],
-  providers: [AuthService, UserService, BackendService, RestaurantService, RestaurantSearchService],
+  providers: [AuthService, UserService, BackendService, RestaurantService, RestaurantSearchService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

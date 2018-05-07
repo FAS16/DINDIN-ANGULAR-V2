@@ -13,7 +13,7 @@
                                    name="username"
                                    placeholder="username"
                                    ngModel
-                                   type="text" #uname required [pattern]="'^[s]{1}[0-9]{6}$'">
+                                   type="text" #uname required> <!--[pattern]="'^[s]{1}[0-9]{6}$'"-->
                             <span *ngIf="!uname.valid && uname.touched" class="text-danger">
                                 Ugyldigt brugernavn (studienummer)
                             </span>

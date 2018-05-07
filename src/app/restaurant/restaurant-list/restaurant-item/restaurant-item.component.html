@@ -11,24 +11,27 @@
                             <span class="ml-5 mr-1 font-weight-bold">Prisklasse:</span>
                             <span>{{restaurant.budget}}</span>
                             <br>
-                            <a href="#" class="card-link">Menukort</a>
-                            <a href="#" class="card-link">Se mere</a>
+                            <span class="font-weight-bold mr-1">Tlf:</span>
+                            <span>{{restaurant.phone}}</span>
+                            <a href="{{restaurant.website}}" target="_blank" class="card-link text-info"  style="margin-left: 205px">Hjemmeside</a>
+                            <!--<a href="#" class="card-link">Se mere</a>-->
                         </div>
                     </div>
                 </div>
                 <div class="col-md 12">
-                    <button class="btn btn-danger
+                    <button class="btn btn-default
                                    btn-custom mt-5 btn-just-icon
                                    float-right"
+                            [ngClass] = "{justselected: likePressed}"
                             (click)="onLike()"
                             type="button"
                             placement="right"
-                            ngbTooltip="Unlike">
+                            ngbTooltip="{{likeStatus}}">
                         <i class="fa fa-heart"></i>
                     </button>
                     <img src="assets/img/logo-rest.png" style="height: 6%; width: 12%"
                          class="mt-3 img-fluid img-thumbnail
-                         img-no-padding float-right mr-5">
+                        float-right mr-5">
                 </div>
             </div>
     </div>
