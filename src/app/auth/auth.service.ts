@@ -25,6 +25,7 @@ export class AuthService {
     signInUser(username: string, password: string) {
         this.credentials = new Credentials(username, password);
         console.log('Authorizing with: ' + username + ' :' + password);
+
         this.httpClient.post(this.LOCAL_URL, this.credentials, { // {username: username, password: password}
             observe: 'response'
         }).subscribe(
@@ -62,6 +63,7 @@ export class AuthService {
     }
 
     isAuthenticated(): boolean {
+        console.log('isAuthenticated: + ' + this.token != null);
         return this.token != null;
     }
 }
