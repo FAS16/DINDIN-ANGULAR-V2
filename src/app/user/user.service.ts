@@ -4,7 +4,8 @@ import {Subject} from 'rxjs/Subject';
 
 export class UserService {
     public userInitialized = new Subject<User>();
-    public profileSelected = new Subject<true>();
+    public profileSelected = new Subject<boolean>();
+    public profileMode;
     public currentUser: User;
 
     constructor() {
@@ -31,4 +32,11 @@ export class UserService {
             this.currentUser.likedRestaurants.splice(index, 1);
         }
     }
+
+    emitProfileSelected() {
+        this.profileMode = true;
+        this.profileSelected.next(true);
+
+    }
+
 }

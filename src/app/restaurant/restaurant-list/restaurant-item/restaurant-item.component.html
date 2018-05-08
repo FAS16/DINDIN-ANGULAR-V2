@@ -13,8 +13,8 @@
                             <br>
                             <span class="font-weight-bold mr-1">Tlf:</span>
                             <span>{{restaurant.phone}}</span>
-                            <a href="{{restaurant.website}}" target="_blank" class="card-link text-info"  style="margin-left: 205px">Hjemmeside</a>
-                            <!--<a href="#" class="card-link">Se mere</a>-->
+                            <!--<a href="{{restaurant.website}}" target="_blank" class="card-link text-info"  style="margin-left: 205px">Hjemmeside</a>-->
+                            <a (click)="onRestaurantSelected()" class="btn btn-link btn-info btn-sm font-weight-bold" style="margin-left: 205px">GÅ TIL PROFIL</a>
                         </div>
                     </div>
                 </div>

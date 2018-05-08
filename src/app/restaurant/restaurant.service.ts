@@ -6,15 +6,15 @@ import {RestaurantSearch} from '../home/restaurant-search/restaurant-search.mode
 export class RestaurantService {
     restaurantsChanged = new Subject<Restaurant[]>();
     private restaurants: Restaurant[] = [
-        new Restaurant( 1, 'Amager kebab', 2300, 'Amagerbrogade 24', 'LOW', 'Tyrkisk', null, 0, '', ''),
-        new Restaurant(2, 'Sushi Mania', 2770, 'Kastrupvej 24', 'MEDIUM', 'Kinesisk', null,  0, '', ''),
+        new Restaurant(1, 'Amager kebab', 2300, 'Amagerbrogade 24', 'LOW', 'Tyrkisk', null, 0, '', ''),
+        new Restaurant(2, 'Sushi Mania', 2770, 'Kastrupvej 24', 'MEDIUM', 'Kinesisk', null, 0, '', ''),
         new Restaurant(3, 'Silas Kebab', 2300, 'Tingvej 2', 'LOW', 'Tyrkisk', null, 0, '', '')
     ];
     private _cuisines: string[] = [];
 
 
     get cuisines(): string[] {
-        for ( let i = 0; i < this.restaurants.length; i++) {
+        for (let i = 0; i < this.restaurants.length; i++) {
             const element: number = this._cuisines.indexOf(this.restaurants[i].cuisine);
             if (element === -1) { // Hvis elementet ikke er der i forvejen
                 this._cuisines.push(this.restaurants[i].cuisine);
@@ -26,6 +26,14 @@ export class RestaurantService {
     getRestaurants() {
         return this.restaurants.slice(); // Slice - så der gives en kopi, og man ikke ændrer i listen i denne service
 
+    }
+
+    getRestaurant(id: number) {
+        for (const restaurant of this.restaurants) {
+            if (restaurant.id === id) {
+                return restaurant;
+            }
+        }
     }
 
     setRestaurants(restaurants: Restaurant[]) {

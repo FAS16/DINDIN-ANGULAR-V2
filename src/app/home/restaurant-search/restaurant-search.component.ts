@@ -24,6 +24,7 @@ export class RestaurantSearchComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        this.restaurantSearchService.resetSearch(); // Reset - when fx user presses the back button in the browser
         console.log('ngOnInit invoked in RestaurantSearchComponent')
         this.sub = this.restaurantSearchService.searchEdited
             .subscribe(
@@ -40,9 +41,10 @@ export class RestaurantSearchComponent implements OnInit, OnDestroy {
 
     onSearch() {
         if (this.restaurantSearchService.isCriteriaCompleted()) {
+            this.restaurantSearchService.resetResults(); // Reset - so the prior search results doest show
             this.backendService.getRestaurantsBySearch(this.defineURI());
+            this.restaurantSearchService.resetSearch(); // Reset - when fx user presses the back button in the browser
             this.router.navigate(['/results']);
-            this.restaurantSearchService.resetSearch();
         } else {
             this.toast.error('Søgning kan kun foretages, hvis alle tre kriterier vælges', 'Mangler søgekriterier');
         }

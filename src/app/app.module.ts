@@ -37,7 +37,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastrModule} from 'ngx-toastr';
 import {CommonModule} from '@angular/common';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import {AuthGuardService} from './auth/auth-guard.service';
+import {AuthGuardService} from './guards/auth-guard.service';
+import {ResultGuard} from './guards/result-guard.service';
+import { RestaurantProfileComponent } from './restaurant/restaurant-profile/restaurant-profile.component';
 
 
 
@@ -66,6 +68,7 @@ import {AuthGuardService} from './auth/auth-guard.service';
       PersonerComponent,
       LoadingComponent,
       PagenotfoundComponent,
+      RestaurantProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,7 +82,7 @@ import {AuthGuardService} from './auth/auth-guard.service';
       BrowserAnimationsModule,
       ToastrModule.forRoot()
   ],
-  providers: [AuthService, UserService, BackendService, RestaurantService, RestaurantSearchService, AuthGuardService],
+  providers: [AuthService, UserService, BackendService, RestaurantService, RestaurantSearchService, AuthGuardService, ResultGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

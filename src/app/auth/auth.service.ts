@@ -63,7 +63,6 @@ export class AuthService {
     }
 
     isAuthenticated(): boolean {
-        console.log('isAuthenticated: + ' + this.token != null);
         return this.token != null;
     }
 }

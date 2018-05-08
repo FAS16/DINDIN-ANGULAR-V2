@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit, OnDestroy{
     }
 
     onProfileChosen() {
-        this.userService.profileSelected.next(true);
+                this.userService.emitProfileSelected();
         console.log('Sending true to profileSelected');
     }
 }

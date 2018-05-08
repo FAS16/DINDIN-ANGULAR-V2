@@ -4,9 +4,10 @@ import {Restaurant} from '../../restaurant/restaurant.model';
 
 export class RestaurantSearchService {
     public searchEdited = new Subject<RestaurantSearch>();
-    public resultsChanged = new Subject<Restaurant[]>();
+    public  resultsChanged = new Subject<Restaurant[]>();
     public search: RestaurantSearch = new RestaurantSearch([], [], []);
     public results: Restaurant[] = [];
+    public criteriaCompleted = false;
 
     setResults(results: Restaurant[]) {
         this.results = results;
@@ -36,12 +37,19 @@ export class RestaurantSearchService {
         this.searchEdited.next(this.search);
     }
 
+    resetResults() {
+        this.results = [];
+    }
+
     isCriteriaCompleted(): boolean {
         if (this.search.zipcodes.length > 0 &&
             this.search.cuisines.length > 0 &&
             this.search.budgets.length > 0) {
-            return true;
+            this.criteriaCompleted = true;
+        } else {
+            this.criteriaCompleted = false;
         }
-        return false;
+
+        return this.criteriaCompleted;
     }
 }

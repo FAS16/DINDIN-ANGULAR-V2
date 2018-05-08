@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
 
         this.backendService.getAllRestaurants();
         console.log('SE HER 1: dette sker først: ' + this.restaurantService.getRestaurants());
-        // Navbar farveskift v. scroll
+         // Navbar farveskift v. scroll
         const navbar: HTMLElement = this.element.nativeElement.children[0].children[0];
         this.renderer.listen('window', 'scroll', (event) => {
             const number = window.scrollY;

@@ -4,6 +4,7 @@ import {UserService} from '../../../user/user.service';
 import {BackendService} from '../../../shared/backend/backend.service';
 import {ToastrService} from 'ngx-toastr';
 import {AuthService} from '../../../auth/auth.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
     selector: 'app-restaurant-item',
@@ -19,7 +20,9 @@ export class RestaurantItemComponent implements OnInit {
     constructor(private userService: UserService,
                 private backendService: BackendService,
                 private toast: ToastrService,
-                private authService: AuthService) {
+                private authService: AuthService,
+                private router: Router,
+                private route: ActivatedRoute) {
     }
 
     ngOnInit() {
@@ -64,5 +67,10 @@ export class RestaurantItemComponent implements OnInit {
             }
         }
         return false;
+    }
+
+    onRestaurantSelected() {
+        // this.router.navigate([this.restaurant.id], {relativeTo: this.route})
+        this.router.navigate(['/restaurant/' + this.restaurant.id])
     }
 }
