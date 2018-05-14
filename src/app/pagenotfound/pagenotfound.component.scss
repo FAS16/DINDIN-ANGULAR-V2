@@ -1,0 +1,67 @@
+.gianth1 {
+  font-size: 100px;
+  padding-bottom: 100px;
+  padding-top: 100px;
+  margin-top: 0px;
+}
+
+.goback {
+  height: 400px;
+}
+
+.btn-goback {
+  color: white;
+  background-color: dodgerblue;
+  border-radius: 35px;
+  border: 2px solid white;
+}
+
+a {
+  font-weight: bolder;
+  font-size: 20px;
+  padding: 15px;
+  transition-timing-function: linear;
+  transition: all .2s ease-in-out;
+}
+
+a:hover {
+  transform: scale(1.08);
+  color: black;
+  background-color: #0D9814;
+  border: 1px solid black;
+}
+
+.center-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+
+.order-text {
+  padding: 20px;
+}
+
+.center-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+
+.order-text {
+  padding: 20px;
+}
+
+.holding-div {
+  transition-timing-function: linear;
+  transition: all .2s ease-in-out;
+}
+
+.holding-div:hover {
+  transform: scale(1.08);
+}
+
+.full-page {
+  min-height: 100vh;
+}

@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-aboutus',
-  templateUrl: './aboutus.component.html',
-  styleUrls: ['./aboutus.component.scss']
+    selector: 'app-dindin-omos',
+    templateUrl: './aboutus.component.html',
+    styleUrls: ['./aboutus.component..css', '../shared/styles/styles.css']
 })
 export class AboutusComponent implements OnInit {
+    satisfied_customers = 1099;
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
+    onClickCustomers() {
+        this.satisfied_customers ++;
+    }
 
 }

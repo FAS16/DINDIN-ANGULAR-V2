@@ -1,0 +1,21 @@
+    <div class="section section-dark-gray full-page">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+                <app-user-description></app-user-description>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="ml-3 mb-3 mt-5">FAVORITTER ({{likes.length}})</h3>
+                <hr style="width: 97%">
+                <app-restaurant-list
+                [restaurants]= "likes">
+
+                </app-restaurant-list>
+            </div>
+        </div>
+    </div>
+</div>

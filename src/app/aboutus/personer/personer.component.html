@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <div
+          class="Person"
+          *ngFor="let teamMember of teamMembers">
+
+    <img src="{{teamMember.pic_url}}">
+
+    <div style="padding-left: 10px; padding-right: 10px">
+      <h3>{{teamMember.name}}</h3>
+      <p>{{teamMember.title}}</p>
+      <a href="mailto:{{teamMember.email}}" target="_top">{{teamMember.email}}</a>
+      <br>
+      <a href="{{teamMember.linkedin}}"><img src="../../../assets/pics/if_linkedin_circle.png"></a>
+    </div>
+  </div>
+
+</div>

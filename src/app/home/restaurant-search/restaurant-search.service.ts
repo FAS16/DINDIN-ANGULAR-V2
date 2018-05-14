@@ -1,32 +1,55 @@
 import {RestaurantSearch} from './restaurant-search.model';
 import {Subject} from 'rxjs/Subject';
+import {Restaurant} from '../../restaurant/restaurant.model';
 
 export class RestaurantSearchService {
-    private _searchEdited = new Subject<RestaurantSearch>();
-    private _search: RestaurantSearch = new RestaurantSearch(0, [], '');
-    private _searches: RestaurantSearch[] = [];
+    public searchEdited = new Subject<RestaurantSearch>();
+    public  resultsChanged = new Subject<Restaurant[]>();
+    public search: RestaurantSearch = new RestaurantSearch([], [], []);
+    public results: Restaurant[] = [];
+    public criteriaCompleted = false;
 
-        get searches(): RestaurantSearch[] {
-        return this._searches.slice();
-    }
-    get search(): RestaurantSearch {
-        return this._search;
+    setResults(results: Restaurant[]) {
+        this.results = results;
+        this.resultsChanged.next(this.results.slice())
     }
 
-    get searchEdited(): Subject<RestaurantSearch> {
-        return this._searchEdited;
+    addZipcodeToSearch(zipcode: number[]) {
+        this.search.zipcodes = zipcode;
+        this.searchEdited.next(this.search);
+        console.log('Search area is: ' + this.search.zipcodes);
     }
-    addZipcodeToSearch(zipcode: number) {
-        this._search.area = zipcode;
-        this._searchEdited.next(this._search);
-        console.log('Search area is: ' + this._search.area);
-    }
+
     addCuisinesToSearch(cuisines: string[]) {
-        this._search.cuisines = cuisines;
-        this._searchEdited.next(this._search);
+        this.search.cuisines = cuisines;
+        this.searchEdited.next(this.search);
     }
-    addBudgetToSearch(budget: string) {
-        this._search.budget = budget;
-        this._searchEdited.next(this._search);
+
+    addBudgetToSearch(budget: string[]) {
+        this.search.budgets = budget;
+        this.searchEdited.next(this.search);
+    }
+
+    resetSearch() {
+        this.search.zipcodes = [];
+        this.search.cuisines = [];
+        this.search.budgets = [];
+        this.searchEdited.next(this.search);
+    }
+
+    resetResults() {
+        this.results = [];
+    }
+
+    isCriteriaCompleted(): boolean {
+        if (this.search.zipcodes.length > 0 &&
+            this.search.cuisines.length > 0 &&
+            this.search.budgets.length > 0) {
+            this.criteriaCompleted = true;
+        } else {
+            this.criteriaCompleted = false;
+        }
+
+        return this.criteriaCompleted;
     }
 }

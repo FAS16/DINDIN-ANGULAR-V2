@@ -7,7 +7,7 @@
       <ul class="list-inline ">
           <li class="list-inline-item">
               <button
-                      [ngClass] = "{justselected: selectedBudget === LOW}"
+                      [ngClass] = "{justselected: selectedBudgets.indexOf(LOW) !== -1}"
                       (click)="onLowBudgetSelected()"
                       class="btn dollar-color-light btn-xxl
                       btn-just-icon"
@@ -19,7 +19,7 @@
 
           </li >
           <li class="list-inline-item">
-              <button [ngClass] = "{justselected: selectedBudget === MEDIUM}"
+              <button [ngClass] = "{justselected: selectedBudgets.indexOf(MEDIUM) !== -1}"
                       (click)="onMediumBudgetSelected()"
                       class="btn dollar-color-normal btn-xxl btn-just-icon"
                       type="button"
@@ -30,7 +30,7 @@
               </button>
           </li >
           <li class="list-inline-item">
-              <button [ngClass] = "{justselected: selectedBudget === HIGH}"
+              <button [ngClass] = "{justselected: selectedBudgets.indexOf(HIGH) !== -1}"
                       (click)="onHighBudgetSelected()"
                       class="btn dollar-color-dark btn-xxl btn-just-icon"
                       type="button"

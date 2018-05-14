@@ -1,40 +1,33 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {AuthService} from '../auth.service';
-import {RestaurantSearch} from '../../home/restaurant-search/restaurant-search.model';
-import {Subscription} from 'rxjs/Subscription';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  username: string;
-  password: string;
-  signedIn: boolean;
-  sub: Subscription;
+    username: string;
+    password: string;
 
-  constructor(private authService: AuthService) { }
-
-  ngOnInit() {
-      this.sub = this.authService.authenticated
-          .subscribe(
-              (authenticated: boolean) => {
-                  this.signedIn = authenticated;
-                  console.log('Recieved data [boolean] from subscription in LoginComponent: ' + this.signedIn)
-              }
-          );
-  }
-    ngOnDestroy() {
-        this.sub.unsubscribe();
+    constructor(private authService: AuthService,
+                private toast: ToastrService) {
     }
 
-  onLogin(form: NgForm) {
-    this.username = form.value.username;
-    this.password = form.value.password;
-    this.authService.signInUser(this.username, this.password);
-    // console.log('signedIn: ' + this.signedIn);
+    ngOnInit() {
 
-  }
+    }
+
+    ngOnDestroy() {
+    }
+
+    onLogin(form: NgForm) {
+        this.toast.info('', 'Validerer login-oplysninger');
+        this.username = form.value.username;
+        this.password = form.value.password;
+        this.authService.signInUser(this.username, this.password);
+
+    }
 }
