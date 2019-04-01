@@ -11,6 +11,7 @@ DINDIN is in short a website where a user can find restaurants to eat at based o
 - REST API: https://github.com/FAS16/DINDIN-REST
 - SOAP API (server): https://github.com/FAS16/DINDIN-SOAP
 - SOAP Client: https://github.com/FAS16/DINDIN-CMD
+- MySQL database: Hosted at Amazon Webservices
 
 ## Deployment Diagram
 
