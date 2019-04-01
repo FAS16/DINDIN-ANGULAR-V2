@@ -8,9 +8,7 @@ DINDIN is in short a website where a user can find restaurants to eat at based o
 - SOAP API (server): https://github.com/FAS16/DINDIN-SOAP
 - SOAP Client: https://github.com/FAS16/DINDIN-CMD
 
-Udviklet ifm. kurset 62596 Distribuerede systemer F18 & 02363 Front end web teknologi F18
-
-<br>The website can be used via:<br>
-- [http://dindin.fahad.dk/](http://dindin.fahad.dk/ "DINDIN Angular-applikation")
+<br>Try the website at:<br>
+- [http://dindin.fahad.dk/](http://dindin.fahad.dk/ "DINDIN Angular-applikation") (Hosted by Amazon Webservices)
 
 
