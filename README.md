@@ -3,11 +3,14 @@
 DINDIN is a SPA developed with Angular. 
 DINDIN is in short a website where a user can find restaurants to eat at based on three criteria: Location (zip), Cuisine and Budget. An user with an account can also <i>like</i> multiple restaurants thereby saving them in his account. 
 
-The project is developed as a distributed system and the other parts of the system can be found at:
+<b>The project is developed as a distributed system and the other parts of the system can be found at:</b>
+- REST API: https://github.com/FAS16/DINDIN-REST
+- SOAP API (server): https://github.com/FAS16/DINDIN-SOAP
+- SOAP Client: https://github.com/FAS16/DINDIN-CMD
 
 Udviklet ifm. kurset 62596 Distribuerede systemer F18 & 02363 Front end web teknologi F18
 
-<br>En idriftsat version kan prøves på:<br>
-- [http://02363-din.s3-website.eu-central-1.amazonaws.com/](http://02363-din.s3-website.eu-central-1.amazonaws.com/ "DINDIN Angular-applikation")
+<br>The website can be used via:<br>
+- [http://dindin.fahad.dk/](http://dindin.fahad.dk/ "DINDIN Angular-applikation")
 
 
